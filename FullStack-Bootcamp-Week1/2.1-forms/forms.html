@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Forms</title>
+        <h1>Create an Account</h1>
+    </head>
+    <body>
+        <form>
+            <div>
+                Email:<br> 
+                <input type = "email" name = "email" /><br><br>
+            </div>
+            <div>
+                Password:<br>
+                <input type = "password" name = "password" /><br><br>
+            </div>
+            <div>
+                Age:<br>
+                <select name="Select Age">  
+                    <option>Select Age</option>
+                    <option>30</option>
+                    <option>31</option>
+                    <option>32</option>
+                </select><br><br>
+            </div>
+            <div>
+                Tell us a little bit about yourself...<br>
+                <textarea rows="4" cols="50" name="comment" form="userform">
+                </textarea>
+            </div>
+            <div>
+                <input type="checkbox" name="terms" >
+                <label for="terms"> I agree to the <a href="https://en.wikipedia.org/wiki/Terms_of_service#:~:text=Terms%20of%20service%20(also%20known,to%20use%20the%20offered%20service.">terms of service</a> </label><br><br>
+            </div>
+            <div>
+                <input type="submit" onclick="alert('Sign up!')" value="Sign up">
+            </div>
+        </form>
+    </body>
+</html>
