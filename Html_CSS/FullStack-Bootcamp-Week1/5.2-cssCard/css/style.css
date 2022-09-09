@@ -1,5 +1,5 @@
 #container{
-    max-width: 350px;
+    max-width: 300px;
     margin: 0 auto;
     margin-top: 20vh;
 
@@ -7,7 +7,7 @@
 }
 
 .card{
-    background-color:beige;
+    background-color:cornsilk;
     border: 1px solid #bacdd8;
     padding: 8px;
     border-radius: 12px;
@@ -24,8 +24,8 @@
 }
 
 .img{
-    background: url(/Images/myPic.jpg) no-repeat center center/cover;
-    width: 180px;
+    background: url(/Html_CSS/FullStack-Bootcamp-Week1/5.2-cssCard/Images/pexels-oleksandr-pidvalnyi-1172064.jpg) no-repeat center center/cover;
+    width: 100%;
     border-radius: 12px;
     height: 214px;
     object-fit: cover;
@@ -41,11 +41,6 @@
 .sub_name{
     font-size: 14px;
     font-weight: 600;
-}
-
-.text{
-    font-size: 12px;
-    font-weight: 300;
 }
 
 .card_details{
