@@ -1,0 +1,46 @@
+.outer1 {
+    width: 129px;
+    height: 100px;
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    border: solid black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.outer2 {
+    width: 135px;
+    height: 114px;
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    border: solid black;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    left: 50px;
+}
+
+.outer3 {
+    width: 382px;
+    height: 121px;
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    border: solid black;
+    position: absolute;
+    z-index: 1;
+    top: 177px;
+    left: 0px;
+}
+
+.outer4 {
+    width: 100px;
+    height: 330px;
+    background: rgb(255, 255, 255);
+    font-size: 15px;
+    border: solid black;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 258px;
+}
