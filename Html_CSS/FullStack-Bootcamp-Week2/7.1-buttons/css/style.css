@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+html {
+    background-color: rgb(106, 106, 161);
+    font-family: "Times New Roman", Times, serif;
+}
+
+.flat-register {
+    background: rgb(55, 128, 212);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.flat-register:hover {
+    background: rgb(78, 130, 187);
+    color: white;
+}
+
+.flat-submit {
+    background: rgb(255, 217, 1);
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.flat-submit:hover {
+    background: rgb(228, 199, 38);
+    color: white;
+}
+
+.round-register {
+    background: rgb(31, 172, 85);
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 22px;
+    border: none;
+    cursor: pointer;
+}
+
+.round-register:hover {
+    background: rgba(31, 172, 85, 0.829);
+    color: white;
+}
+
+.round-submit {
+    background: rgb(243, 116, 77);
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.round-submit:hover {
+    background: rgba(243, 116, 77, 0.842);
+    color: white;
+}
+
+.flatGhost-register {
+    background: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-color: rgb(196, 96, 96);
+    border-style: solid;
+    cursor: pointer;
+}
+
+.flatGhost-register:hover {
+    background: rgb(196, 96, 96);
+    color: white;
+}
+
+.flatGhost-submit {
+    background: none;
+    color: white;
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-color: #c460b3;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.flatGhost-submit:hover {
+    background: #c460b3;
+    color: white;
+}
+.roundGhost-register {
+    background: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 22px;
+    border-color: yellow;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.roundGhost-register:hover {
+    background: yellow;
+    color: rgb(255, 255, 255);
+}
+
+.roundGhost-submit {
+    background: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 22px;
+    border-color: aqua;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.roundGhost-submit:hover {
+    background: aqua;
+    color: rgb(255, 255, 255);
+}
