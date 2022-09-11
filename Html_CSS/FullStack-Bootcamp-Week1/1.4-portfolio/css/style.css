@@ -35,8 +35,9 @@ body {
 }
 
 #container {
+    display: block;
     position: relative;
-    left: 30%;
+    left: 36%;
     max-width: 400px;
     max-height: 800px;
     margin: 30px 30px 30px 30px;
