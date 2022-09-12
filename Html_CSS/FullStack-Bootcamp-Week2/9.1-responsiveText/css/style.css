@@ -13,14 +13,14 @@ body {
     font-size: 30px;
 }
 
-@media (min-width: 200px) {
+@media screen and (min-width: 801px) {
     body {
-        font-size: 50px;
+        font-size: 70px;
     }
 }
 
-@media (max-width: 2300px) {
+@media screen and (max-width: 800px) {
     body {
-        font-size: 15px;
+        font-size: 30px;
     }
 }
