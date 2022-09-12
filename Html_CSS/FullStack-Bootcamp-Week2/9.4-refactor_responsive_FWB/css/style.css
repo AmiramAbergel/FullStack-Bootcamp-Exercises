@@ -4,13 +4,12 @@
     box-sizing: border-box;
 }
 
+html,
 body {
-    font-family: "Red Hat Mono", monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vw;
     background: radial-gradient(circle, #ffffff 0%, #94bbe9 100%);
     background-image: url("../img/156000-abstract-green-and-white-background-vector-illustration.jpg");
-}
-
-.flex-container {
 }
 
 .topnav {
@@ -24,7 +23,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1.3vw;
 }
 
 .topnav a:hover {
@@ -37,70 +36,46 @@ body {
     color: white;
 }
 
-#container {
-    display: inline-block;
+.flex-container-data {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item {
+    margin: 10px;
+    padding: 10px;
     text-align: center;
-    max-width: 400px;
-    max-height: 800px;
-    margin: 30px 30px 30px 30px;
-    margin-top: 20vh;
+}
+
+.container {
 }
 
 .card {
-    max-width: 400px;
-    background-color: #ffffff11;
-    border: 1px solid #91b1c400;
-    margin: auto;
-    padding: 30px -2px 30px 30px;
-    border-radius: 30px;
 }
 
 #tag {
-    padding: 4px 8px;
-    border: 1px solid #e5eaed;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #788697;
 }
 
 .img {
-    padding: 40px 40px 40px 40px;
-    position: relative;
-    left: 40px;
-    background: url(/Html_CSS/FullStack-Bootcamp-Week1/1.4-portfolio/Images/myPic.jpg)
-        no-repeat center center/cover;
-    width: 180px;
-    border-radius: 12px;
-    height: 214px;
-    object-fit: cover;
-    margin: 30px 30px 30px 30px;
 }
 
 .name {
-    font-size: 24px;
-    font-weight: 600;
-    padding: 16px -1px 8px 8px;
-    margin: 13px -14px 8px 2px;
+    align-self: flex-end;
 }
 
 .sub_name {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 2em;
 }
 
 .text {
-    font-size: 15px;
-    font-weight: 300;
 }
 
 .card_details {
-    padding: 16px 8px 8px 8px;
 }
 
 h4 {
-    padding: 30px 30px 30px 30px;
 }
 
 .linkbtn {
