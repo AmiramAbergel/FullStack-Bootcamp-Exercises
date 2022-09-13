@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+/* top line - left-up */
+.top-and-bottom-leftSide::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    width: 5%;
+    height: 3px;
+    top: 150px;
+    left: 400px;
+}
+
+/* top line - left-down */
+.top-and-bottom-leftSide::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    width: 5%;
+    height: 3px;
+    bottom: 150px;
+    left: 400px;
+}
+
+/* bottom line - right-up */
+.top-and-bottom-rightSide::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    width: 5%;
+    height: 3px;
+    top: 150px;
+    right: 400px;
+}
+
+/* bottom line - right-down */
+.top-and-bottom-rightSide::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    width: 5%;
+    height: 3px;
+    bottom: 150px;
+    right: 400px;
+}
+
+.left-and-right-leftSide::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    height: 10%;
+    width: 3px;
+    top: 150px;
+    right: 400px;
+}
+
+.left-and-right-leftSide::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    height: 10%;
+    width: 3px;
+    bottom: 150px;
+    right: 400px;
+}
+
+.left-and-right-rightSide::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    height: 10%;
+    width: 3px;
+    top: 150px;
+    left: 400px;
+}
+
+.left-and-right-rightSide::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 43);
+    height: 10%;
+    width: 3px;
+    bottom: 150px;
+    left: 400px;
+}
