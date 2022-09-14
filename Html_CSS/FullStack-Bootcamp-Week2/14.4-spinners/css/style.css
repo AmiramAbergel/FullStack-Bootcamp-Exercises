@@ -3,3 +3,39 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    background: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.item {
+    margin: 65px;
+    height: 100px;
+    width: 100px;
+    border-radius: 3rem;
+    background: rgb(0, 0, 0);
+}
+
+.spinner1 {
+    border: 0.3rem solid rgb(190, 190, 190);
+    border-bottom-color: rgb(255, 208, 0);
+}
+
+.spinner2 {
+    border: 0.3rem solid rgb(255, 208, 0);
+}
+
+.spinner3 {
+    border: 0.3rem solid rgb(255, 208, 0);
+}
+
+.spinner4 {
+    border: 0.3rem solid rgb(255, 208, 0);
+}
