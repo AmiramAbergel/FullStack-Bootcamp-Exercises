@@ -83,14 +83,14 @@ body {
     min-height: 15px;
     min-width: 15px;
     background: rgb(255, 208, 0);
-    animation: animate4 1s infinite 250ms;
+    animation: animate4 1s infinite 200ms;
     margin: 10px;
 }
 .spinner4-3 {
     min-height: 15px;
     min-width: 15px;
     background: rgb(255, 208, 0);
-    animation: animate4 1s infinite 500ms;
+    animation: animate4 1s infinite 400ms;
     margin: 10px;
 }
 
