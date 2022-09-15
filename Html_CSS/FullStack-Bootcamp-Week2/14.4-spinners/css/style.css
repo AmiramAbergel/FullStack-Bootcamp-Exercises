@@ -5,20 +5,19 @@
 }
 
 body {
-    background: black;
+    background: rgb(0, 0, 0);
 }
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
 }
 
 .item {
-    margin: 65px;
-    height: 100px;
-    width: 100px;
+    min-height: 100px;
+    min-width: 100px;
     border-radius: 4rem;
     background: rgb(0, 0, 0);
 }
@@ -36,12 +35,63 @@ body {
     animation: animate2 1s linear infinite;
 }
 
-.spinner3 {
-    border: 0.3rem solid rgb(255, 208, 0);
+.bounce {
+    display: flex;
 }
 
-.spinner4 {
+.spinner3-1 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
     border: 0.3rem solid rgb(255, 208, 0);
+    opacity: 1;
+    animation: animate3 0.5s infinite alternate;
+    margin: 10px;
+}
+
+.spinner3-2 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
+    border: 0.3rem solid rgb(255, 208, 0);
+    opacity: 0;
+    animation: animate3 0.5s infinite alternate 250ms;
+    margin: 10px;
+}
+
+.spinner3-3 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
+    border: 0.3rem solid rgb(255, 208, 0);
+    opacity: 0;
+    animation: animate3 0.5s infinite alternate 500ms;
+    margin: 10px;
+}
+
+.fill {
+    display: flex;
+}
+.spinner4-1 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
+    animation: animate4 1s infinite;
+    margin: 10px;
+}
+.spinner4-2 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
+    animation: animate4 1s infinite 250ms;
+    margin: 10px;
+}
+.spinner4-3 {
+    min-height: 15px;
+    min-width: 15px;
+    background: rgb(255, 208, 0);
+    animation: animate4 1s infinite 500ms;
+    margin: 10px;
 }
 
 @keyframes animate1 {
@@ -53,5 +103,33 @@ body {
 @keyframes animate2 {
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes animate4 {
+    0% {
+        background: #424042;
+    }
+
+    50% {
+        background: rgb(255, 208, 0);
+    }
+
+    100% {
+        background: #424042;
     }
 }
