@@ -50,22 +50,25 @@
 
 /* Tablet */
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .grid {
         grid-template-areas:
             "item1 item1 item1"
-            "item2 item3 item4"
+            "item2 item3 item3"
+            "item4 item4 item4"
             "item5 item5 item5";
     }
-} */
+}
 
 /* Smartphone */
 
-/* @media (max-width: 500px) {
+@media (max-width: 500px) {
     .grid {
         grid-template-areas:
-            "."
-            ". . ."
-            ".";
+            "item1"
+            "item2"
+            "item3"
+            "item4"
+            "item5";
     }
-} */
+}
