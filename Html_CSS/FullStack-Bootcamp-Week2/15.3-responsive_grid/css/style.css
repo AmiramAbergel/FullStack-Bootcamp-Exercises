@@ -14,34 +14,58 @@
 
 .grid {
     display: grid;
-    grid-template-columns: 250px;
+    grid-template-areas:
+        "item1 item1 item1 item1"
+        "item2 item3 item3 item4"
+        "item5 item5 item5 item5";
+    gap: 1rem;
+    padding: 2rem;
+    height: 100vh;
 }
 
 .item1 {
     background: red;
-    grid-column: 1 / span 1;
+    grid-area: item1;
 }
 
 .item2 {
     background: blue;
-    grid-column: 1 / span 1;
-    grid-row: 2;
+    grid-area: item2;
 }
 
 .item3 {
     background: green;
-    grid-column: 1 / span 1;
-    grid-row: 3;
+    grid-area: item3;
 }
 
 .item4 {
     background: purple;
-    grid-column: 1 / span 1;
-    grid-row: 4;
+    grid-area: item4;
 }
 
 .item5 {
     background: yellow;
-    grid-column: 1 / span 1;
-    grid-row: 5;
+    grid-area: item5;
 }
+
+/* Tablet */
+
+/* @media (max-width: 768px) {
+    .grid {
+        grid-template-areas:
+            "item1 item1 item1"
+            "item2 item3 item4"
+            "item5 item5 item5";
+    }
+} */
+
+/* Smartphone */
+
+/* @media (max-width: 500px) {
+    .grid {
+        grid-template-areas:
+            "."
+            ". . ."
+            ".";
+    }
+} */
