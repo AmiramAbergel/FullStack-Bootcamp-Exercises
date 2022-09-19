@@ -21,3 +21,10 @@ console.log(canadaPopulation);
 
 
 //4  function expression
+const percentageOfWorld2 = function(population){
+    return ((population/7900)*100).toFixed(1);
+}
+
+console.log(percentageOfWorld2(1441));
+console.log(percentageOfWorld2(212));
+console.log(percentageOfWorld2(38));
