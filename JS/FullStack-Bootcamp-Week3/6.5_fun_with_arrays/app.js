@@ -4,7 +4,9 @@ const filled = new Array(100).fill({ pizza: "Margarita" });
 console.log(filled);
 
 //2
-const arrFrom = Array.from({ length: 100 }, (v, i) => i + 1);
+const arrFrom = Array.from({ length: 100 }, (element, index) => {
+    return index + 1;
+});
 console.log(arrFrom);
 
 //3
