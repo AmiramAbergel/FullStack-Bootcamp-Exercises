@@ -5,7 +5,6 @@ const countLetters = (arr) => {
         return element.toLowerCase();
     });
     const res = {};
-    console.log(`${Object.keys(res)} : ${Object.values(res)}`);
 };
 
 for (let letter of Object.keys(res)) {

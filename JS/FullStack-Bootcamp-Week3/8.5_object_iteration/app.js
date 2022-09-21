@@ -1,6 +1,7 @@
 const swapped = (obj) => {
     const resObj = {};
-    for (let prop in obj) {
+    for (const [key, value] of Object.entries(obj)) {
+        resObj[value] = key;
     }
     return resObj;
 };
@@ -24,5 +25,23 @@ const testObj = {
     s: 1,
 };
 
+const testObj2 = {
+    h: 1,
+    e: 2,
+    l: 3,
+    o: 4,
+    g: 5,
+    d: 6,
+    a: 7,
+    y: 8,
+    u: 9,
+    r: 10,
+    w: 11,
+    c: 12,
+    m: 13,
+    t: 14,
+    b: 15,
+    s: 16,
+};
+
 swapped(testObj);
-//console.log(swapped(testObj));
