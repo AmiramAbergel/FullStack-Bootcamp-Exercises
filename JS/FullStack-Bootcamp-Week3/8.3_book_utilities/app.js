@@ -12,17 +12,17 @@ const book2 = {
 
 const bookUtils = {
     getFirstPublished(testYearBookA, testYearBookB) {
-        if (testYearBookA.year > testYearBookB.year) {
+        if (testYearBookA["year"] > testYearBookB["year"]) {
             return testYearBookB;
         } else {
             return testYearBookA;
         }
     },
     setNewEdition(book, editionYear) {
-        book.latestEdition = editionYear;
+        book["latestEdition"] = editionYear;
     },
     setLanguage(book, language) {
-        book.language = language;
+        book["language"] = language;
     },
     setTranslation(book, language, translator) {
         book.translation = {
@@ -31,16 +31,15 @@ const bookUtils = {
         };
     },
     setPublisher(book, bookName, location) {
-        book["publisher"] = {
+        book.publisher = {
             name: bookName,
             location: location,
         };
     },
     isSamePublisher(checkBookA, checkBookB) {
         if (
-            checkBookA["publisher"].name === checkBookB["publisher"].name &&
-            checkBookA["publisher"].location ===
-                checkBookB["publisher"].location
+            checkBookA.publisher.name === checkBookB.publisher.name &&
+            checkBookA.publisher.location === checkBookB.publisher.location
         ) {
             return "publisher name and location are identical in the 2 books";
         }
