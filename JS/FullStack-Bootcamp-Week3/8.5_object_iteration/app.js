@@ -7,6 +7,7 @@ const swapped = (obj) => {
 };
 
 const testObj = {
+    //The same values will be merged into one key.
     h: 3,
     e: 4,
     l: 3,
@@ -45,3 +46,4 @@ const testObj2 = {
 };
 
 swapped(testObj);
+swapped(testObj2);
