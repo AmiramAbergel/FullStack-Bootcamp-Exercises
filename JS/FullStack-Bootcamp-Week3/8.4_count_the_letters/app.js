@@ -1,12 +1,22 @@
 const array = ["Hello", "Good Day", "Your Welcome", "hotdog", "hamburgers"];
 
-const countLetters = (arr) => {
-    const lower = arr.map((element) => {
-        return element.toLowerCase();
-    });
-    const res = {};
+const letterCounts = (array) => {
+    const letterCounts = {};
+    let maxCounts = 0;
+    let mostOccurredLetter;
+    let lower = array.toString().toLowerCase().replace(/\s|,/g, "").split("");
+    for (let char of lower) {
+        if (char in letterCounts) {
+            letterCounts[char]++;
+        } else {
+            letterCounts[char] = 1;
+        }
+        if (letterCounts[char] > maxCounts) {
+            maxCounts = letterCounts[char];
+            mostOccurredLetter = char;
+        }
+    }
+    return [letterCounts, mostOccurredLetter];
 };
 
-for (let letter of Object.keys(res)) {
-    console.log(`${letter} : ${res[letter]}`);
-}
+console.log(letterCounts(array));
