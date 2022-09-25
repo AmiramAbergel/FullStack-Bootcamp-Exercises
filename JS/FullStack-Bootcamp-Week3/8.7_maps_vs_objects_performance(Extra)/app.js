@@ -23,6 +23,24 @@ console.log(objMap);
 console.timeEnd("My operation on map"); // <---- Stops the time
 
 //2
+//Object
 console.time("Find a specific property from itself (Object)"); // <---- Starts the timer
 console.log(obj1[500000]);
 console.timeEnd("Find a specific property from itself (Object)"); // <---- Stops the time
+
+//Map
+console.time("Find a specific property from itself (Map)"); // <---- Starts the timer
+console.log(objMap.get(500000));
+console.timeEnd("Find a specific property from itself (Map)"); // <---- Stops the time
+
+//3
+//Object
+console.time("Adding a single entry (Object)"); // <---- Starts the timer
+console.log((obj1[1000000] = 2000000));
+console.timeEnd("Adding a single entry (Object)"); // <---- Stops the time
+//Map
+console.time("Adding a single entry (Map)"); // <---- Starts the timer
+console.log(objMap.set(10000000, 20000000));
+console.timeEnd("Adding a single entry (Map)"); // <---- Stops the time
+
+//4
