@@ -23,3 +23,6 @@ console.log(objMap);
 console.timeEnd("My operation on map"); // <---- Stops the time
 
 //2
+console.time("Find a specific property from itself (Object)"); // <---- Starts the timer
+console.log(obj1[500000]);
+console.timeEnd("Find a specific property from itself (Object)"); // <---- Stops the time
