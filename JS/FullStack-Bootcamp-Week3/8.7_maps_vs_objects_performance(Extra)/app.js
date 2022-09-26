@@ -44,3 +44,11 @@ console.log(objMap.set(10000000, 20000000));
 console.timeEnd("Adding a single entry (Map)"); // <---- Stops the time
 
 //4
+//Object
+console.time("Deleting a single entry (Object)"); // <---- Starts the timer
+delete obj1[500000];
+console.timeEnd("Deleting a single entry (Object)"); // <---- Stops the time
+//Map
+console.time("Deleting a single entryy (Map)"); // <---- Starts the timer
+console.log(objMap.delete(500000));
+console.timeEnd("Deleting a single entry (Map)"); // <---- Stops the time
