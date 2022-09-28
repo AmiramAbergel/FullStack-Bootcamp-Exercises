@@ -24,6 +24,8 @@ const createDash = (str) => {
     return str.replace(/\s/g, "-");
 };
 
+//3
 console.log(firstWordUpperCase("sasda asdopo w2sw ws2", createDash));
 
-//3
+
+
