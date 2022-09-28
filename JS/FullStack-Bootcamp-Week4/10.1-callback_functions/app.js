@@ -27,5 +27,22 @@ const createDash = (str) => {
 //3
 console.log(firstWordUpperCase("sasda asdopo w2sw ws2", createDash));
 
+//4 - Create your own function
+// isEven - check if num (num > 0) is even or odd num
+const isEven = (num, func) => {
+    if (num % 2 === 0) {
+        return func(num);
+    } else {
+        console.log(`${num} is odd`);
+    }
+};
 
+const logEven = (num) => {
+    console.log(`${num} is even`);
+};
 
+//test
+isEven(4, logEven);
+isEven(5, logEven);
+isEven(14, logEven);
+isEven(15, logEven);
