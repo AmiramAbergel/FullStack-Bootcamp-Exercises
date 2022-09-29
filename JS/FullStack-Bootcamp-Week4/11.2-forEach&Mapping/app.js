@@ -2,6 +2,7 @@
 
 const numbers = [23, 12, 423, 6, 3, 76, 3];
 const string = "sqsd SADAS aszxca AS#s212 sxcv 5ggsPING";
+const arr2 = ["hi", 1, 2, "sh", "bye"];
 
 const doubleValues = (arr) => {
     const doubles = arr.map((num) => (num = num * 2));
@@ -29,7 +30,10 @@ const onlyEvenValues = (arr) => {
 const showFirstAndLast = (arr) => {
     const resArr = [];
     arr.map((element, index) => {
-        if (index === 0 || index === arr.length - 1) {
+        if (
+            typeof element === "string" &&
+            (index === 0 || index === arr.length - 1)
+        ) {
             resArr.push(`"${element}"`);
         }
     });
@@ -37,7 +41,7 @@ const showFirstAndLast = (arr) => {
 };
 
 //Test3
-//showFirstAndLast(numbers);
+showFirstAndLast(arr2);
 
 //4
 const vowelCount = (str) => {
@@ -115,4 +119,4 @@ const swapCase = (str) => {
 };
 
 //Test 7
-swapCase(string);
+//swapCase(string);
