@@ -16,7 +16,14 @@ const library = [
     },
 ];
 
-const displayReadableBoos = (arr) => {};
+const displayReadableBooks = (books) => {
+    const readableBooks = books.filter((b) => b.readingStatus === true);
+    readableBooks.forEach((element) => {
+        console.log(
+            `Book name: ${element.title}\n Author name:${element.author}\n Reading status: ${element.readingStatus}`
+        );
+    });
+};
 
 //Test
-//displayReadableBoos(library);
+displayReadableBooks(library);
