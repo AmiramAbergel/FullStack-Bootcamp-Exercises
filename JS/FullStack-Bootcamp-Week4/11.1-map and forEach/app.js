@@ -1,3 +1,4 @@
+//1
 const newReleases = [
     {
         id: 70111470,
@@ -33,7 +34,7 @@ const newReleases = [
     },
 ];
 
-const arrayLoop = (arr) => {
+const arrayLoopForEach = (arr) => {
     const res = [];
     arr.forEach((element) => {
         res.push({ id: element.id, name: element.title });
@@ -41,4 +42,23 @@ const arrayLoop = (arr) => {
     console.log(res);
 };
 
-arrayLoop(newReleases);
+//Test
+arrayLoopForEach(newReleases);
+
+//2
+const arrayLoopMap = (arr) => {
+    const res = [];
+    arr.map((element) => {
+        res.push({ id: element.id, name: element.title });
+    });
+    console.log(res);
+};
+
+const arrayLoopMap2 = (arr) => {
+    return arr.map((element) => ({ id: element.id, name: element.title }));
+};
+
+//Test
+
+arrayLoopMap(newReleases);
+arrayLoopMap2(newReleases);
