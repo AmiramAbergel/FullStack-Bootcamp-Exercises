@@ -56,7 +56,7 @@ const namesFromArr = (arr) => {
 //2
 const objBorn90sFromArr = (arr) => {
     const obj90sArr = [];
-    arr.forEach((element, index) => {
+    arr.forEach((element) => {
         if (parseInt(element.birthday.split("-")[2]) < 1990) {
             obj90sArr.push(element);
         }
@@ -65,4 +65,23 @@ const objBorn90sFromArr = (arr) => {
 };
 
 //Test2
-objBorn90sFromArr(data);
+//objBorn90sFromArr(data);
+
+//3
+const foodObjFromArr = (arr) => {
+    let foodObj = [];
+    arr.forEach((element, index) => {
+        foodObj[index] = Object.assign({}, element.favoriteFoods);
+    });
+    return foodObj;
+};
+
+//Test3
+foodObjFromArr(data);
+
+// const reArr = arr.map(({ key, value }) => {
+//     if (key === "") {
+//     }
+// });
+
+//    Object.entries(obj).forEach(([key, value]) => {});
