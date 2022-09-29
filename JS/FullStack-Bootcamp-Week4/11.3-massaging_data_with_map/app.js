@@ -69,19 +69,22 @@ const objBorn90sFromArr = (arr) => {
 
 //3
 const foodObjFromArr = (arr) => {
-    let foodObj = [];
-    arr.forEach((element, index) => {
-        foodObj[index] = Object.assign({}, element.favoriteFoods);
+    let foodObj = {};
+    arr.forEach((element) => {
+        let meatsArr = element.favoriteFoods.meats;
+        let fishArr = element.favoriteFoods.fish;
+        let meatsAndFishArr = meatsArr.concat(fishArr);
+        for (let i = 0; i < meatsAndFishArr.length; i++) {
+            let prop = meatsAndFishArr[i];
+            if (foodObj[prop] !== undefined) {
+                foodObj[prop] += 1;
+            } else {
+                foodObj[prop] = 1;
+            }
+        }
     });
     return foodObj;
 };
 
 //Test3
 foodObjFromArr(data);
-
-// const reArr = arr.map(({ key, value }) => {
-//     if (key === "") {
-//     }
-// });
-
-//    Object.entries(obj).forEach(([key, value]) => {});
