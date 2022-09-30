@@ -72,6 +72,17 @@ const assignTeachersSubject = (teacherID, newSubject) => {
     console.log(school);
 };
 
+//4
+const addStudent = (school, id, name, age) => {
+    const student = {
+        id: id,
+        name: name,
+        age: age,
+    };
+    school.students.push(student);
+    console.log(school);
+};
+
 //--Tests--
 
 //1
@@ -84,3 +95,6 @@ const assignTeachersSubject = (teacherID, newSubject) => {
 //3
 //assignTeachersSubject(2, "biology");
 //assignTeachersSubject(2, "history");
+
+//4
+addStudent(school, 14, "Tony", 25);
