@@ -40,21 +40,40 @@ const school = {
 };
 
 //1
-const findPerson = (type, id) => {};
+const findPerson = (type, id) => {
+    const chosenType = school[type].find((t) => t.id === id);
+    return chosenType;
+};
 
 //2
-const assignStudent = (studentID, subject) => {};
-
+const assignStudent = (studentID, subject) => {
+    const studentByID = findPerson("students", studentID);
+    const teacherByCapAndSub = school.teachers.filter(
+        (t) => t.capacityLeft !== 0 && t.subjects.includes(subject)
+    );
+    let chosenTeacher = teacherByCapAndSub[0];
+    //console.log(teacherByCapAndSub);
+    //console.log(chosenTeacher);
+    if (teacherByCapAndSub.length === 0) {
+        return `Sorry, no available teachers left.`;
+    } else {
+        let chosenTeacher = teacherByCapAndSub[0];
+        chosenTeacher.students.push(studentByID);
+        chosenTeacher.capacityLeft--;
+    }
+    console.log(school);
+};
 //3
 const assignTeachersSubject = (teacherID, newSubject) => {};
 
 //--Tests--
 
 //1
-//findPerson();
+// findPerson("students", 12);
+// findPerson("teachers", 2);
 
 //2
-//assignStudent();
+//assignStudent(12, "history");
 
 //3
 // assignTeachersSubject();
