@@ -64,7 +64,13 @@ const assignStudent = (studentID, subject) => {
     console.log(school);
 };
 //3
-const assignTeachersSubject = (teacherID, newSubject) => {};
+const assignTeachersSubject = (teacherID, newSubject) => {
+    const teacherByID = findPerson("teachers", teacherID);
+    if (teacherByID.subjects.includes(newSubject) === false) {
+        teacherByID.subjects.push(newSubject);
+    }
+    console.log(school);
+};
 
 //--Tests--
 
@@ -76,4 +82,5 @@ const assignTeachersSubject = (teacherID, newSubject) => {};
 //assignStudent(12, "history");
 
 //3
-// assignTeachersSubject();
+//assignTeachersSubject(2, "biology");
+//assignTeachersSubject(2, "history");
