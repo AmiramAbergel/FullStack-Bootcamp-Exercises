@@ -1,4 +1,4 @@
-const numbers = [1, -5, 666, 2, 400, 11];
+const numbers = [100, 0];
 
 //1 - Max.
 const max = (arr) => {
@@ -17,16 +17,29 @@ const max = (arr) => {
 
 //2 - The sum of even numbers.
 const sumEvenNums = (arr) => {
-    const res = arr.reduce(() => {});
+    const res = arr.reduce((total, curr) => {
+        if (curr % 2 === 0) {
+            return total + curr;
+        } else {
+            return total;
+        }
+    }, 0);
+    if (res === 0) return `Invalid`;
+    return res;
 };
 
 // Test: 2
-sumEvenNums(numbers);
+//sumEvenNums(numbers);
 
 //3 - Average
 const average = (arr) => {
-    const res = arr.reduce(() => {});
+    length = arr.length;
+    const sum = arr.reduce((total, curr) => {
+        return total + curr;
+    });
+    const res = sum / length;
+    return res;
 };
 
 // Test: 3
-//average(numbers);
+average(numbers);
