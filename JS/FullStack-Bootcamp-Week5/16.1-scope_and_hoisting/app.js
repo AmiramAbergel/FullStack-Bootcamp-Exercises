@@ -15,9 +15,10 @@ function funcA() {
         return 2;
     }
 }
+//test
 funcA();
 
-//------------------------------------------//
+//------------------------------------------------//
 //Block 2
 var fullName = "John Doe"; // Outer
 var obj = {
