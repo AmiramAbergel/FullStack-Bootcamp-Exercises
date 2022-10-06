@@ -172,4 +172,11 @@ const objArr = movies.map((element) => {
     return resObj;
 });
 
-console.log(objArr);
+const objArr2 = movies.map(({ name, genres }) => {
+    return {
+        name,
+        genres,
+    };
+});
+
+console.log(objArr2);
