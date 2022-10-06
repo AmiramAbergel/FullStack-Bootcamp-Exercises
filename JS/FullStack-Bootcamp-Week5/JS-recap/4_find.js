@@ -1,19 +1,35 @@
-//? 3.1- Greater than
+//? 4.1 – greater than
 // You are given this array of numbers:
 const numbers = [1, 100, 67, -5, 6784, 356, 200];
-// Create a function that takes 2 arguments, an array and a number.
-// With the filter method return from the function only the numbers that are
-// greater than the number you gave as an argument.
+// Create a function that takes two arguments. An array and a number.
+// Using the find method return the number that is greater than the one
+// provided from the function.
+// Notice what you are getting back.
+//* 4.1
+const findGreater = (arr, number) => {
+    return arr.find((el) => {
+        return el > number;
+    });
+};
+console.log(findGreater(numbers, 10));
 
-const greaterThan = (arr, num) => {};
-
-//? 3.2 – Greater than and less than.
-// Use the same array of numbers as in the previous exericse
-// Create a function that takes 3 arguments, an array, and 2 numbers.With the filter method return from the function only the numbers that are
-// greater than and less than the numbers you supplied to the function.
-// E.g. if your first number is 10 and second number is 300 you should only
-// return the numbers 100, 67, 200.
-
+//? 4.2 – Inventory
+// You are provided this array of objects:
+const inventory = [
+    { name: "apples", quantity: 2 },
+    { name: "bananas", quantity: 0 },
+    { name: "cherries", quantity: 5 },
+];
+// Create a function that that gets two arguments, an array and fruit name.
+// Using the find method return the object that the fruit name is the same as
+// you provided to your function.
+//* 4.2
+const findObj = (arr, name) => {
+    return arr.find((el) => {
+        return el.name === name;
+    });
+};
+console.log(findObj(inventory, "apples"));
 const movies = [
     {
         id: 1,
@@ -140,42 +156,7 @@ const movies = [
     },
 ];
 
-//? 3.3 – filter rating
-// Create a function that takes two arguments, an array and a rating number
-// Using the filter method return from the function only the movies that the
-// rating average is more than the rating number provided in the function.
-
-const filterRating = (arr, ratingNum) => {
-    const resArr = arr.filter((movie) => {
-        let avg = movie.rating.average;
-        return ratingNum < avg;
-    });
-    return resArr;
-};
-
-//filterRating(movies, 7);
-
-//? 3.4 – filter ratings and run time
-// Create a function that takes 3 arguments, an array, a rating number and a
-// run time number.
-// Using the filter method return from the function only the movies that have
-// a rating average of more than the rating number provided to the function
-// and the movies run time needs to be less than the run time provided from
-// the function.
-// For example if the rating: 5 and run time: 50, you should only return the
-// movie Under The Dome.
-
-const filterRatingAndRunTime = (arr, ratingNum, runTimeNum) => {
-    const resArr = arr.filter((movie) => {
-        let avg = movie.rating.average;
-        let runTimeN = movie.runtime;
-        return ratingNum < avg && runTimeNum >= runTimeN;
-    });
-    return resArr;
-};
-
-filterRatingAndRunTime(movies, 5, 50);
-
-//? 3.5 – filter rating and run time own object
-// Using the same logic as the previous exercise don’t return the whole movie
-// object, but only return the movie name and movie rating.
+//? 4.3- Find by Id
+// Create function that takes two arguments an array and an id.
+// Using the find method return the movie with the id you provided to your
+// function.
