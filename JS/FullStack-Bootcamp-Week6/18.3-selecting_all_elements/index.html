@@ -7,10 +7,18 @@
         <title>Document</title>
     </head>
     <body>
-        <div id="myFirstDiv"></div>
+        <div id="myFirstDiv">retert</div>
         <div id="mySecondDiv"></div>
         <div id="myThridDiv"></div>
         <div id="myFourthDiv"></div>
-        <script></script>
+        <script>
+            // better way
+            const map1 = new Map();
+            map1.set("myFirstDiv", document.querySelector("#myFirstDiv"));
+            map1.set("mySecondDiv", document.querySelector("#mySecondDiv"));
+            map1.set("myThirdDiv", document.querySelector("#myThirdDiv"));
+            map1.set("myFourthDiv", document.querySelector("#myFourthDiv"));
+            console.dir(map1.get("myFirstDiv"));
+        </script>
     </body>
 </html>
