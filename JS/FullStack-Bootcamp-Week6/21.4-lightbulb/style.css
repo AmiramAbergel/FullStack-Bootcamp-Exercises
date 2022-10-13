@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bulbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bulb {
+    width: 400px;
+}
+
+.bulbOff {
+    visibility: visible;
+    position: relative;
+}
+
+.bulbOn {
+    visibility: visible;
+    position: absolute;
+}
