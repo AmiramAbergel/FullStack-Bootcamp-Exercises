@@ -10,6 +10,9 @@
     <body>
         <header>
             <h1>Welcome To Guess My Letter</h1>
+            <input id="rand" type="text" placeholder="?" size="1col" />
+            <div class="rightMsg">Right letter!</div>
+            <div class="wrongMsg">Nope, wrong letter</div>
         </header>
         <div class="resetContainer">
             <h3>Would you like to play again?</h3>
@@ -17,6 +20,8 @@
         </div>
         <div class="resultContainer">
             <h2>Keys Guessed</h2>
+            <div id="userGuess"></div>
+            <input type="text" id="addItem" />
         </div>
         <script src="app.js"></script>
     </body>
