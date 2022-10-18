@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    margin-top: 200px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type="checkbox"] {
+    transform: scale(5);
+}
+
+img {
+    visibility: hidden;
+    height: 500px;
+    width: 500px;
+}
