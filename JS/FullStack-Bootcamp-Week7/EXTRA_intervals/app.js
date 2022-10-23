@@ -2,9 +2,9 @@ const hours = document.querySelector(".hrs");
 const minutes = document.querySelector(".mns");
 const secondes = document.querySelector(".scd");
 
-let sCount = 0;
-let mCount = 0;
-let hCount = 0;
+let sCount = 40;
+let mCount = 3;
+let hCount = 15;
 
 const fSecondes = () => {
     setInterval(counter, 1000);
