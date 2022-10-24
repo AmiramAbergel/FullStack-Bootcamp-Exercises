@@ -18,4 +18,10 @@ function whoIsStronger(getStrength) {
         return "I am stronger";
     } else return "You are stronger";
 }
-whoIsStronger(hero.getStrength);
+whoIsStronger(hero.getStrength.bind(hero));
+
+/* Ans:
+whoIsStronger function input is function from an object, in that case "this" will point to window (whoIsStronger is function), and for that we need to transfer the pointer such that "this" will point to hero object.
+*/
+//Fix:
+// 21 line fixed, .bind(hero) added.

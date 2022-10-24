@@ -48,7 +48,12 @@ const sum = myArr3.myReduce((prevVal, currVal) => {
 }, initialValue);
 
 console.log(sum);
-
+//
 console.log([1, 100].myReduce((a, b) => Math.max(a, b), 50));
 console.log([1, 100].myReduce((a, b) => Math.max(a, b), 101));
 console.log([50].myReduce((a, b) => Math.max(a, b), 10));
+//original reduce:
+console.log(sum);
+console.log([1, 100].reduce((a, b) => Math.max(a, b), 50));
+console.log([1, 100].reduce((a, b) => Math.max(a, b), 101));
+console.log([50].reduce((a, b) => Math.max(a, b), 10));
