@@ -16,5 +16,10 @@ function printName() {
  * Note: you cannot change the super heroes objects
  */
 function printHeroes(heroes, printFunc) {
-    //add your code here
+    for (let i = 0; i < heroes.length; i++) {
+        const element = heroes[i];
+        printFunc.call(element);
+    }
 }
+
+printHeroes(superHeroes, printName);
