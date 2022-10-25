@@ -7,9 +7,10 @@ function lessGreater10(num) {
         }
     });
 }
-lessGreater10(11).then(() => {
-    console.log("Resolved!");
-});
-lessGreater10(11).catch(() => {
-    console.log("rejected!");
-});
+lessGreater10(11)
+    .then(() => {
+        console.log("Resolved!");
+    })
+    .catch(() => {
+        console.log("rejected!");
+    });
