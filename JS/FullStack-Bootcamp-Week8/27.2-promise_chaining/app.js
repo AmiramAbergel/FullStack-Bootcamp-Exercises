@@ -1,24 +1,39 @@
+function onlyStrings(arr) {
+    return arr.every((element) => {
+        return typeof element === "string";
+    });
+}
+
+function upper(arr) {
+    const upperArr = arr.map((word) => word.toUpperCase());
+    return upperArr;
+}
+
 const makeAllCaps = (arr) => {
-    const arrOfWords = arr;
     return new Promise((resolve, reject) => {
-        if (arrOfWords) {
-            resolve();
+        if (onlyStrings(arr)) {
+            resolve(upper(arr));
         } else {
-            reject();
+            reject("Array not contains only strings!");
         }
     });
 };
 
-makeAllCaps(arrOfWords)
-    .then(() => {
-        let resArr = [arrOfWords.length];
-        for (let i = 0; i < resArr.length; i++) {
-            resArr.push(arrOfWords[i].toUpperCase());
-        }
-        makeAllCaps(resArr).then(() => {
-            console.log();
-        });
-    })
-    .catch(() => {
-        console.log();
+const sortWords = (arr) => arr.sort();
+
+//------------Tests---------------//
+const arr1 = ["apple", "school"];
+const arr2 = ["promises", 2];
+makeAllCaps(arr1)
+    .then(sortWords)
+    .then((data) => console.log(data))
+    .catch((e) => {
+        throw e;
+    });
+//--------------------------------//
+makeAllCaps(arr2)
+    .then((data) => sortWords(data))
+    .then((data) => console.log(data))
+    .catch((e) => {
+        throw e;
     });
