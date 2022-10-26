@@ -1,5 +1,6 @@
 const formBtn = document.querySelector(".getUser");
 const formInput = formBtn.querySelector(".inputUrl");
+const cards = [];
 let card;
 
 const extractUserFromDB = (dBData) => {
@@ -31,6 +32,9 @@ const createRepo = (num) => {
     return number;
 };
 const applyInHTML = (obj) => {
+    if (card) {
+        card.remove();
+    }
     const userImg = createImg(obj.avatar);
     const userName = createName(obj.name);
     const userRepos = createRepo(obj.reposNum);
@@ -45,18 +49,26 @@ const applyInHTML = (obj) => {
     });
 };
 
-const responseAction = (response) => {
-    response
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            const res = extractUserFromDB(data);
-            applyInHTML(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+const responseAction = async (db, userInput) => {
+    try {
+        const response = await fetch(db);
+        if (response.status === 404) {
+            throw `Not found, ERROR ${response.status}`;
+        }
+        const responseRes = await response.json();
+        const data = extractUserFromDB(responseRes);
+        const check = cards.includes(userInput);
+        if (cards.length !== 0 && check) {
+            throw `ERROR exist already! `;
+        } else {
+            cards.pop();
+            cards.push(userInput);
+            applyInHTML(data);
+        }
+        console.log(cards);
+    } catch (error) {
+        throw `ERROR! `;
+    }
 };
 
 const getUser = (event) => {
@@ -64,8 +76,11 @@ const getUser = (event) => {
     const form = event.target;
     const userInput = form[0].value;
     const db = `https://api.github.com/users/${userInput}`;
-    const response = fetch(db);
-    responseAction(response);
+
+    if (userInput !== "") {
+        responseAction(db, userInput);
+    }
+    // console.log(responseAction(db));
 };
 
 formBtn.addEventListener("submit", getUser);
