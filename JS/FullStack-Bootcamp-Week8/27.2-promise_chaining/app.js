@@ -19,7 +19,15 @@ const makeAllCaps = (arr) => {
     });
 };
 
-const sortWords = (arr) => arr.sort();
+const sortWords = (arr) => {
+    return new Promise((resolve, reject) => {
+        if (onlyStrings(arr)) {
+            resolve(arr.sort());
+        } else {
+            reject("Array not contains only strings!");
+        }
+    });
+};
 
 //------------Tests---------------//
 const arr1 = ["apple", "school"];
