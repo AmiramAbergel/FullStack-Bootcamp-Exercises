@@ -1,9 +1,21 @@
-const formBtn = document.querySelector(".getUser");
+const formBtn = document.querySelector(".getMovie");
 const formInput = formBtn.querySelector(".inputUrl");
+const moviesArr = [];
 let movieCard;
-
-const extractUserFromDB = (dBData) => {
-    const checkRating = (r) => {};
+const checkRating = (ratingsArr) => {
+    let res;
+    if (ratingsArr.length === 0) {
+        res = "Rating not exist";
+    } else {
+        res = {};
+        for (let i = 0; i < ratingsArr.length; i++) {
+            const element = ratingsArr[i];
+            res[`${element.Source}`] = element.Value;
+        }
+    }
+    return res;
+};
+const extractMovieFromDB = (dBData) => {
     let user = {
         poster: dBData.Poster,
         name: dBData.Title,
@@ -14,6 +26,7 @@ const extractUserFromDB = (dBData) => {
         actors: dBData.Actors,
         rating: checkRating(dBData.Ratings),
     };
+
     return user;
 };
 
@@ -26,57 +39,93 @@ const createImg = (url) => {
     return image;
 };
 const createName = (str) => {
-    const name = document.createElement("h2");
+    const name = document.createElement("h1");
     name.textContent = str;
     return name;
 };
-const createMovieInfo = (genre, year, plot, director, actors) => {
+const createMovieInfo = (arr) => {
+    let output = "<h2>Movie Detail:</h2>";
+    output += `
+        <ul>
+            <li>Genre: ${arr[0]}</li>
+            <li>Year: ${arr[1]}</li>
+            <li>Plot: ${arr[2]}</li>
+            <li>Director: ${arr[3]}</li>
+            <li>Actors: ${arr[4]}</li>
+        </ul>
+        `;
     const movieInf = document.createElement("div");
-    number.textContent = movieInf;
-    return number;
+    movieInf.innerHTML = output;
+    return movieInf;
 };
-const createMovieRating = () => {};
+const createMovieRating = (obj) => {
+    let output = "<h2>Rating:</h2>";
+    const movieRat = document.createElement("div");
+    for (const [key, value] of Object.entries(obj)) {
+        output += `${key}: ${value}</br>`;
+    }
+    movieRat.innerHTML = output;
+    console.log(movieRat);
+    return movieRat;
+};
 const applyInHTML = (obj) => {
+    if (movieCard) {
+        movieCard.remove();
+    }
     const movieImg = createImg(obj.poster);
+
     const movieName = createName(obj.name);
-    const movieInfo = createMovieInfo(
-        obj.Genre,
+    const movieInfo = createMovieInfo([
+        obj.genre,
         obj.year,
         obj.plot,
         obj.director,
-        obj.Actors
-    );
-    const movieRating = createRepo();
+        obj.actors,
+    ]);
+    console.log(obj.rating);
+    const movieRating = createMovieRating(obj.rating);
     const userContainer = document.createElement("div");
     userContainer.classList.add("movieCard");
-    userContainer.append(movieImg, movieName, movieInfo);
+    userContainer.append(movieImg, movieName, movieInfo, movieRating);
     document.body.appendChild(userContainer);
+    movieCard = document.querySelector(".movieCard");
 };
 
-const responseAction = (response) => {
-    response
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            const res = extractUserFromDB(data);
-            applyInHTML(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+const responseAction = async (db, userInput) => {
+    try {
+        const response = await fetch(db);
+        if (response.status === 404) {
+            throw `Not found, ERROR ${response.status}`;
+        }
+        const responseRes = await response.json();
+        const data = extractMovieFromDB(responseRes);
+        const check = moviesArr.includes(userInput);
+        if (moviesArr.length !== 0 && check) {
+            throw `ERROR exist already! `;
+        } else {
+            moviesArr.pop();
+            moviesArr.push(userInput);
+            console.log(data);
+            applyInHTML(data);
+        }
+    } catch (error) {
+        throw `ERROR! `;
+    }
 };
 
-const getUser = (event) => {
+const getMovie = (event) => {
     event.preventDefault();
     const form = event.target;
     const userInput = form[0].value;
     const db = `https://www.omdbapi.com/?t=${userInput}&apikey=d94a3ee1`;
-    const response = fetch(db);
-    responseAction(response);
+    if (userInput !== "") {
+        responseAction(db, userInput);
+    } else {
+        throw `ERROR! Can't be empty `;
+    }
 };
 
-formBtn.addEventListener("submit", getUser);
+formBtn.addEventListener("submit", getMovie);
 window.onload = () => {
     formInput.focus();
 };

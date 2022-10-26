@@ -12,7 +12,6 @@ const extractUserFromDB = (dBData) => {
     };
     return user;
 };
-
 //
 const createImg = (url) => {
     const image = document.createElement("img");
@@ -76,7 +75,6 @@ const getUser = (event) => {
     const form = event.target;
     const userInput = form[0].value;
     const db = `https://api.github.com/users/${userInput}`;
-
     if (userInput !== "") {
         responseAction(db, userInput);
     }
