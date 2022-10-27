@@ -33,13 +33,14 @@ const fetchData = async (url) => {
     }
 };
 
-const extractHomeWorlds = (arr) => {
+const extractHomeWorlds = async (arr) => {
     let res = [arr.length];
     for (let character of arr) {
         const f = fetchData(character.homeworld);
         res.push(f);
     }
-    return res;
+    let fRes = await Promise.all(res);
+    return fRes;
 };
 
 const getData = async () => {
@@ -47,8 +48,7 @@ const getData = async () => {
     const characterRes = await fetchData(dbURL);
     const data = characterRes.results; //arr of objs
     console.log(data);
-    let homeWorldRes = extractHomeWorlds(data);
-    const homeWorlds = await Promise.all(homeWorldRes);
+    const homeWorlds = await extractHomeWorlds(data);
     console.log(homeWorlds);
     return combineData(data, homeWorlds);
 };
