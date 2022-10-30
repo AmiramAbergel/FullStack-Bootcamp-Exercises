@@ -590,7 +590,14 @@ getAgencyByName(ourCarMarket.sellers, "CarMax");
 //? @param {array}   - agenciesArr
 //? @param {string}  - id - agency id.
 //? @return {string} - agencyId
-const getAgencyById = function (agenciesArr, id) {};
+const getAgencyById = function (agenciesArr, id) {
+    const [res] = agenciesArr.filter((el) => {
+        return el.agencyId === id;
+    });
+    console.log(res.agencyId);
+};
+
+getAgencyById(ourCarMarket.sellers, "26_IPfHU1");
 
 //* 3. getAllAgenciesNameAndId
 //? @param {array}     - agenciesArr
