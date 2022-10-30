@@ -580,7 +580,7 @@ const ourCarMarket = {
 //?                      and if it didn't, return empty array.
 const getAgencyByName = (agenciesArr, name) => {
     const res = agenciesArr.filter((el) => {
-        return el.agencyName === name;
+        return el.agencyName.includes(name);
     });
     //console.log(res);
 };
@@ -608,13 +608,25 @@ const getAllAgenciesNameAndId = (agenciesArr) => {
         name: element.agencyName,
         id: element.agencyId,
     }));
-    console.log(map1);
+    // console.log(map1);
 };
+
 getAllAgenciesNameAndId(ourCarMarket.sellers);
+
 //* 4. getCarsToBuy
 //? @param {array}    - agenciesArr
 //? @return {object[]} - array of cars objects that are for sale
-const getCarsToBuy = (agenciesArr) => {};
+const getCarsToBuy = (agenciesArr) => {
+    const res = [];
+    agenciesArr.forEach((agency) => {
+        for (let key in agency.cars) {
+            res.push(...agency.cars[key]);
+        }
+    });
+    return res;
+};
+
+getCarsToBuy(ourCarMarket.sellers);
 
 //* 5. getCarsToBuyByModel
 //? @param {array}     - agenciesArr
