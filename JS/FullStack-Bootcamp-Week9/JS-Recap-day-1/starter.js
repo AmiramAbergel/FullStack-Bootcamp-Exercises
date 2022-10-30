@@ -582,7 +582,7 @@ const getAgencyByName = (agenciesArr, name) => {
     const res = agenciesArr.filter((el) => {
         return el.agencyName === name;
     });
-    console.log(res);
+    //console.log(res);
 };
 getAgencyByName(ourCarMarket.sellers, "CarMax");
 
@@ -594,7 +594,7 @@ const getAgencyById = function (agenciesArr, id) {
     const [res] = agenciesArr.filter((el) => {
         return el.agencyId === id;
     });
-    console.log(res.agencyId);
+    //console.log(res.agencyId);
 };
 
 getAgencyById(ourCarMarket.sellers, "26_IPfHU1");
@@ -603,8 +603,14 @@ getAgencyById(ourCarMarket.sellers, "26_IPfHU1");
 //? @param {array}     - agenciesArr
 //? @return {Object[]} - Array of agency objects.
 //?                      The object includes the keys 'name' and 'id'
-const getAllAgenciesNameAndId = (agenciesArr) => {};
-
+const getAllAgenciesNameAndId = (agenciesArr) => {
+    const map1 = agenciesArr.map((element) => ({
+        name: element.agencyName,
+        id: element.agencyId,
+    }));
+    console.log(map1);
+};
+getAllAgenciesNameAndId(ourCarMarket.sellers);
 //* 4. getCarsToBuy
 //? @param {array}    - agenciesArr
 //? @return {object[]} - array of cars objects that are for sale
