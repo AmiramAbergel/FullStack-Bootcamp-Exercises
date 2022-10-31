@@ -15,28 +15,40 @@ window.onload = () => {
     formInput.focus();
 };
 
-const getNum = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const userInput = form[0].value;
-    if (userInput !== "") {
-        wait(userInput, 2000)
-            .then(() => {
-                console.log("You can drive");
-            })
-            .catch(() => {
-                console.log("You're too young to drive!");
-            });
+const getNum = async (event) => {
+    try {
+        event.preventDefault();
+        const form = event.target;
+        const userInput = form[0].value;
+        if (userInput !== "") {
+            await wait(userInput, 2000);
+        } else {
+            throw "not found!";
+        }
+    } catch (error) {
+        throw `${error}! `;
     }
+    // event.preventDefault();
+    // const form = event.target;
+    // const userInput = form[0].value;
+    // if (userInput !== "") {
+    //     await wait(userInput, 2000);
+    // .then(() => {
+    //     console.log("You can drive");
+    // })
+    // .catch(() => {
+    //     console.log("You're too young to drive!");
+    // });
+    // }
 };
 
-function wait(input, milliseconds) {
+async function wait(input, milliseconds) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (input > 17) {
-                resolve();
+                resolve("You can drive");
             } else {
-                reject();
+                reject("You're too young to drive!");
             }
         }, milliseconds);
     });
