@@ -43,9 +43,9 @@ async function createPromiseAsync(num) {
     try {
         setTimeout(() => {
             if (num >= 17) {
-                displayText.innerHTML = "You can drive";
+                displayText.textContent = "You can drive";
             } else {
-                displayText.innerHTML = "You're too young to drive";
+                displayText.textContent = "You're too young to drive";
             }
         }, 2000);
     } catch (error) {
@@ -178,33 +178,36 @@ const agenciesBtn = document.querySelector("#agenciesBtn");
 const listContainer = document.querySelector("#listContainer");
 
 customersBtn.addEventListener("click", async () => {
-    listContainer.innerHTML = "";
+    listContainer.replaceChildren();
     setSpinner(true);
     const carMarketObj = await getData();
     const ol = document.createElement("ol");
-    ol.innerHTML = "Customers List:";
+    ol.textContent = "Customers List:";
+    ol.classList.add("customers");
     listContainer.appendChild(ol);
     carMarketObj.customers.forEach((customer) => {
         let { name } = customer;
         const li = document.createElement("li");
-        li.innerHTML = name;
+        li.classList.add(`${customer.id}`);
+        li.textContent = name;
         ol.appendChild(li);
     });
     setSpinner(false);
 });
 // -----------------------------------------------------
 agenciesBtn.addEventListener("click", async () => {
-    listContainer.innerHTML = "";
+    listContainer.replaceChildren();
     setSpinner(true);
     const carMarketObj = await getData();
     console.log(carMarketObj);
     const ol = document.createElement("ol");
-    ol.innerHTML = "Agencies List:";
+    ol.classList.add("agencies");
+    ol.textContent = "Agencies List:";
     listContainer.appendChild(ol);
     carMarketObj.sellers.forEach((seller) => {
         let { agencyName } = seller;
         const li = document.createElement("li");
-        li.innerHTML = agencyName;
+        li.textContent = agencyName;
         ol.appendChild(li);
     });
     setSpinner(false);
@@ -233,9 +236,26 @@ const setSpinner = (bool) => {
 //* You can divide the work inside the capsule and share the responsibility
 //* Separate the functions of logic and The functions related to HTML
 
-listContainer.addEventListener("click", (e) => {
-    if (e.target.tagName !== "OL") {
-        printInfo(e.target.innerHTML, "customers");
+listContainer.addEventListener("click", async (e) => {
+    const input = e.target;
+    const carMarketObj = await getData();
+    if (input.tagName !== "OL") {
+        if (input.parentElement.className === "customers") {
+            const db = carMarketObj.customers;
+            db.forEach((customer) => {
+                let { name } = customer;
+                if (name === input.textContent) {
+                    const find = document.querySelector(`.${input.className}`);
+                    console.dir(find);
+                }
+                // const li = document.createElement("li");
+                // li.textContent = agencyName;
+                // ol.appendChild(li);
+            });
+        } else {
+            const db = carMarketObj.sellers;
+            console.log("bye");
+        }
     }
     // const carMarketObj = await getData()
     // console.log(e.target.tagName);
@@ -245,8 +265,8 @@ listContainer.addEventListener("click", (e) => {
 
 const printInfo = async (li, name) => {
     const carMarketObj = await getData();
-    console.log(carMarketObj);
-    console.log(li);
+    //console.dir(carMarketObj);
+    //console.dir(li);
 };
 
 //? 5)
