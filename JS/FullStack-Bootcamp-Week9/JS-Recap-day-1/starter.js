@@ -579,39 +579,34 @@ const ourCarMarket = {
 //? @return {object[]} - Array of agencies found,
 //?                      and if it didn't, return empty array.
 const getAgencyByName = (agenciesArr, name) => {
-    const res = agenciesArr.filter((el) => {
-        return el.agencyName.includes(name);
-    });
-    //console.log(res);
+    //   return agenciesArr.filter((agency) => name === agency.agencyName);
+    return agenciesArr.filter((agency) => agency.agencyName.includes(name));
 };
-getAgencyByName(ourCarMarket.sellers, "CarMax");
+// console.log(getAgencyByName(ourCarMarket.sellers, 'CarMax'));
 
 //* 2. getAgencyById
 //? @param {array}   - agenciesArr
-//? @param {string}  - id - agency id.
-//? @return {string} - agencyId
+//? @param {string}  - id - agency id
+//? @return {object} - agency object
 const getAgencyById = function (agenciesArr, id) {
-    const [res] = agenciesArr.filter((el) => {
-        return el.agencyId === id;
-    });
-    //console.log(res.agencyId);
+    return agenciesArr.find((agency) => agency.agencyId === id);
 };
-
-getAgencyById(ourCarMarket.sellers, "26_IPfHU1");
+// console.log(getAgencyById(ourCarMarket.sellers, '26_IPfHU1'));
 
 //* 3. getAllAgenciesNameAndId
 //? @param {array}     - agenciesArr
 //? @return {Object[]} - Array of agency objects.
 //?                      The object includes the keys 'name' and 'id'
 const getAllAgenciesNameAndId = (agenciesArr) => {
-    const map1 = agenciesArr.map((element) => ({
-        name: element.agencyName,
-        id: element.agencyId,
-    }));
-    // console.log(map1);
+    //   return agenciesArr.map((agency) => {
+    //     const newObj = { name: agency.agencyName, id: agency.agencyId };
+    //     return newObj;
+    //   });
+    return agenciesArr.map(({ agencyName: name, agencyId: id }) => {
+        return { name, id };
+    });
 };
-
-getAllAgenciesNameAndId(ourCarMarket.sellers);
+// console.log(getAllAgenciesNameAndId(ourCarMarket.sellers));
 
 //* 4. getCarsToBuy
 //? @param {array}    - agenciesArr
@@ -619,20 +614,66 @@ getAllAgenciesNameAndId(ourCarMarket.sellers);
 const getCarsToBuy = (agenciesArr) => {
     const res = [];
     agenciesArr.forEach((agency) => {
-        for (let key in agency.cars) {
-            res.push(...agency.cars[key]);
+        //! agency.cars === object
+        const cars = agency.cars; // object
+        for (let carBrand in cars) {
+            cars[carBrand].forEach((car) => {
+                res.push(car);
+            });
+            // res.push(...cars[carBrand]);
         }
+        // for (let carsArr of Object.values(cars)) {
+        // }
     });
     return res;
 };
-
-getCarsToBuy(ourCarMarket.sellers);
+// console.log(getCarsToBuy(ourCarMarket.sellers));
 
 //* 5. getCarsToBuyByModel
 //? @param {array}     - agenciesArr
 //? @param {string}    - carModel
-//? @return {object[]} - arrays of cars objects that are for sale by brand
-const getCarsToBuyByModel = (agenciesArr, model) => {};
+//? @return {object[]} - arrays of cars objects that are for sale by Model
+const getCarsToBuyByModel = (agenciesArr, model) => {
+    return getCarsToBuy(agenciesArr).filter((car) => car.name === model);
+};
+
+//* 6. getCarsToBuyByAgencyId
+//? @param {array}     - agenciesArr
+//? @param {string}    - agencyId (optional)
+//? @return {object[]} - array of cars objects that are for sale
+//?                      at a specific agency
+//?                      if agencyId didn't supplied return by all agencies
+//! do not use getCarsToBuy or getCarsToBuyByModel
+const getCarsToBuyByAgencyId = (agenciesArr, agencyId) => {
+    const res = [];
+    agenciesArr.forEach((agency) => {
+        if (agency.agencyId === agencyId || agencyId === undefined) {
+            const cars = agency.cars; // object
+            for (let carBrand in cars) {
+                cars[carBrand].forEach((car) => {
+                    res.push(car);
+                });
+            }
+        }
+    });
+    return res;
+};
+// console.log(getCarsToBuyByAgencyId(ourCarMarket.sellers));
+
+//* 7. getAllCarsToBuyByModelAndAgencyId
+//? @param {array}     - agenciesArr
+//? @param {string}    - carModel
+//? @param {string}    - agencyId (optional)
+//? @return {object[]} - array of cars objects that are for sale
+//?                      at a specific agency and a specific model
+//?                      if agencyId didn't supplied return by all agencies
+//! do not use getCarsToBuy or getCarsToBuyByModel
+const getCarsToBuyByModelAndAgencyId = (agenciesArr, model, agencyId) => {
+    return getCarsToBuyByAgencyId(agenciesArr, agencyId).filter(
+        (car) => car.name === model
+    );
+};
+console.log(getCarsToBuyByModelAndAgencyId(ourCarMarket.sellers));
 
 //!------------- Customers Getters ----------------------
 //* 8. getCustomerByName
@@ -641,15 +682,149 @@ const getCarsToBuyByModel = (agenciesArr, model) => {};
 //? @return {Object[]} - Array of customers found,
 //?                      and if it didn't, return empty array.
 //! Question: Why do you think the function returns an array and not the client object?
-const getCustomerByName = (customersArr, name) => {};
+const getCustomerByName = (customersArr, name) => {
+    //   return customersArr.filter((el) => {
+    //     return el.name === name;
+    //   });
+    return customersArr.filter((el) => {
+        return el.name.includes(name);
+    });
+};
+// console.log(getCustomerByName(ourCarMarket.customers, 'Lilah'));
 
 //* 9. getCustomerById
 //? @param {array}  - customersArr
 //? @param {string}  - id - customer id
-//? @return {string} - agencyId
-const getCustomerById = (customersArr, id) => {};
+//? @return {object} - customer object
+const getCustomerById = (customersArr, id) => {
+    return customersArr.find((el) => {
+        return el.id === id;
+    });
+};
+// console.log(getCustomerById(ourCarMarket.customers, 'BGzHhjnE8'));
 
 //* 10. getAllCustomersCars
 //? @param {array}  - customersArr
 //? @return {object[]} - customerCarsArr - Array of all customer cars object
-const getAllCustomersCars = (customersArr) => {};
+const getAllCustomersCars = (customersArr) => {
+    //customersArr.map - return arr with the same length
+    const res2 = [];
+    const res = customersArr.map((customer) => {
+        //customer.cars === Array
+        //customer.cars - return arr with the same length
+        return customer.cars;
+    });
+    return res.flat();
+    //
+};
+
+//* 11. getAllCustomerCars
+//? @param {array}     - customersArr
+//? @param {string}    - customerId (optional)
+//? @return {object[]} - customerCarsArr - Array of all customer cars object
+//?                      if customerId didn't supplied return by all customers cars
+//! do not use getAllCustomersCars
+const getAllCustomerCars = (customersArr, customerId) => {};
+
+//! ---------------- Setters -----------------
+
+//* 13. setNewCarToAgency
+//? @param {object}  - agencyObject
+//? @param {object}  - carObject (with 'brand' key value pair)
+//? @return {object} - carObject - the car after it has been assigned
+const setNewCarToAgency = (agencyObject, carObject) => {};
+
+//* 14. deleteCarFromAgency
+//? @param {object}  - agencyObject
+//? @param {string}  - carNumber
+//? @return {object} - carObject - the car after it has been removed
+const deleteCarFromAgency = (agencyObject, carNumber) => {};
+
+//* 15. decrementOrIncrementCashOfAgency
+//? Decrement or increment cash of an agency
+//? @param {object}   - agencyObj
+//? @param {number}   - amount - negative or positive amount
+// ? @return {number} - the new amount of agency cash
+const decOrIncCashOfAgency = (agencyObj, amount) => {};
+
+//* 16. decOrIncCreditOfAgency
+//? @param {object}  - agencyObj
+//? @param {number}  - amount - negative or positive amount
+//? @return {number} - the new amount of agency credit
+//?                    The lowest credit is 0
+const decOrIncCreditOfAgency = (agencyObj, amount) => {};
+
+//* 17. setCarToCustomer
+//? @param {object} - customerObj
+//? @param {object} - carObject
+//? @return {object[]} - allCarsOfCostumer
+const setCarToCustomer = (customerObj, carObject) => {};
+
+//* 18. deleteCarOfCostumer
+//? @param {object} - customerObj
+//? @param {string} - carNumber
+//? @return {object[]} - allCarsOfCostumer
+const deleteCarOfCostumer = (costumerObj, carNumber) => {};
+
+//* 19. decOrIncCashOfCustomer
+//? @param {object}  - customerObj
+//? @param {number}  - amount - negative or positive amount
+//? @return {number} - costumerCash
+//?                    The lowest cash amount is 0
+const decOrIncCashOfCustomer = (costumerObj, amount) => {};
+
+//! ---------------- Hard ----------------------
+//* 20. setPropertyBrandToAllCars
+//? Set to all car objects the new key "model" and assign to it the correct model name
+//? @param {object} carMarket
+//? @return {boolean} in case the assignment was successful return true and false in case it was not
+//! At the end of the exercise, (theoretically)
+//! if you had the ability to change the original
+//! carMarket object to another form, what would it be?
+const setPropertyBrandToAllCars = (carMarket) => {};
+
+//* 21. sortAndFilterByYearOfProduction
+//?   filter and Sort in a Ascending or Descending order all vehicles for sale by year of production.
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromYear - Will display vehicles starting this year
+//?   @param {number} - toYear - Will display vehicles up to this year
+//?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order (optional)
+//?   @return {object[]} - arrayOfModels - array of sorted cars
+
+//* 22. sortAndFilterByPrice
+//?   filter and Sort in a Ascending or Descending order all vehicles for sale by price of the cars.
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromPrice - Will display vehicles starting at this price
+//?   @param {number} - fromPrice - Will display vehicles up to this price
+//?   @param {boolean} - isAscendingOrder - true for ascending order, false for descending order
+//?   @return {object[]} - arrayOfModels - array of sorted cars
+
+//* 23. searchCar
+//?   @param {object[]} - arrOfCars - array of cars
+//?   @param {number} - fromYear - Will display vehicles starting this year (optional)
+//?   @param {number} - toYear - Will display vehicles up to this year (optional)
+//?   @param {number} - fromPrice - Will display vehicles starting at this price (optional)
+//?   @param {number} - fromPrice - Will display vehicles up to this price (optional)
+//?   @param {string} - brand - Look only for cars of this brand (optional)
+
+//! ------------------ Ninja ------------------
+//* 24. sellCar
+//?   Sell ​​a car to a specific customer
+//?   @param {string} - agencyId
+//?   @param {string} - customerId
+//?   @param {string} - carModel
+//?   @return {object} - The object of the car purchased by the customer or an explanation message
+// *     - 5a. Subtract the vehicle amount + 17% (tax) from the customer's cash.
+// *     - 5b. Add the vehicle value to the car agency cash.
+// *     - 5c. Change the car owner's id to the customer's id.
+// *     - 5d. Remove the car from the array of the agency's car models.
+// *     - 5e. Add the car to the client cars array.
+// *
+// *     Taxes Authority:
+// *     - 5f. Pay 17 percent of the vehicle value to the tax authority. (add the amount to totalTaxesPaid)
+// *     - 5g. Increase the number of transactions made in one (numberOfTransactions)
+// *     - 5h. Add the vehicle amount + tax to sumOfAllTransactions
+// !     - Check that there is the requested vehicle at the agency in not return 'The vehicle does not exist at the agency'
+// !     - Check that the customer has enough money to purchase the vehicle, if not return 'The customer does not have enough money'
+
+//!      - Try to divide the tasks into several functions and try to maintain a readable language.
