@@ -4,21 +4,22 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
 
-        <title>Document</title>
+        <title>Promise Recap</title>
     </head>
     <body>
-        <form class="getNum">
-            <br /><br />
-            <label for="fname">Get Num:</label>
-            <input
-                class="input"
-                type="text"
-                name="Name"
-                placeholder="Number"
-            /><br /><br />
-            <input type="submit" value="Submit" />
-        </form>
-        <script src="app.js"></script>
+        <center>
+            <label for="textInput">Input Field</label>
+            <input type="text" name="textInput" id="textInput" min="0" />
+            <input type="button" value="SUBMIT" id="btn" />
+            <hr />
+            <h4 id="displayText"></h4>
+            <hr />
+            <input type="button" value="CUSTOMERS" id="customersBtn" />
+            <input type="button" value="AGENCIES" id="agenciesBtn" />
+            <div id="listContainer"></div>
+        </center>
+        <script src="./app.js"></script>
     </body>
 </html>

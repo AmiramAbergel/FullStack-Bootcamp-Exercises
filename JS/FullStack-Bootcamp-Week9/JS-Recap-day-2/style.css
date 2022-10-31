@@ -1,0 +1,19 @@
+html {
+  font-size: calc(15px + 0.6vw);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ol {
+  font-size: 1.5rem;
+  list-style-type: none;
+  width: max-content;
+  font-weight: 600;
+}
+
+li {
+  font-size: 1.125rem;
+  text-align: left;
+  font-weight: 400;
+  text-decoration: none;
+  margin-top: 0.75rem;
+}
