@@ -1,4 +1,12 @@
 {
     "cSpell.words": ["Neighbouring"],
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "cSpell.language": "en,en-US",
+    "cSpell.enableFiletypes": ["properties", "xml"],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    }
 }
