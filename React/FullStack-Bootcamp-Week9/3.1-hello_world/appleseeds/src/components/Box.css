@@ -1,0 +1,44 @@
+.container {
+}
+
+.box1 {
+    position: relative;
+    height: 800px;
+    background-color: rgba(148, 241, 179, 0.856);
+}
+
+.box2 {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    left: 50px;
+    top: 70px;
+    background-color: rgba(127, 236, 227, 0.856);
+}
+
+.box3 {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    left: 50px;
+    top: 70px;
+    background-color: rgba(243, 161, 161, 0.856);
+}
+
+.box4a {
+    position: absolute;
+    width: 60%;
+    height: 40%;
+    left: 200px;
+    top: 30px;
+    background-color: rgba(226, 98, 243, 0.856);
+}
+
+.box4b {
+    position: absolute;
+    width: 60%;
+    height: 40%;
+    left: 200px;
+    top: 250px;
+    background-color: rgba(226, 98, 243, 0.856);
+}
