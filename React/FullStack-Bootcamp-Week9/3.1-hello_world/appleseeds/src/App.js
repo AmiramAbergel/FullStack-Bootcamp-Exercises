@@ -1,6 +1,7 @@
 import JsxPlot from "./components/JsxPlot";
 import Boxes from "./components/Box";
 import Quiz from "./components/Quiz";
+
 import "./App.css";
 
 function App() {
