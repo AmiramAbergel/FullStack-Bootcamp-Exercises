@@ -5,7 +5,7 @@ const HideSeek = (props) => {
 
     let [toggle, setToggle] = useState(false);
     const clickHandler = () => {
-        setToggle(!toggle);
+        setToggle((tog) => !tog);
     };
     return (
         <div className="container">
