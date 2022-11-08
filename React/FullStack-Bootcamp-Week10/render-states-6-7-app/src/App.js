@@ -6,15 +6,7 @@ import data from "./components/7.1_react_data_massaging/data";
 import DataMassaging from "./components/7.1_react_data_massaging/DataMassaging";
 
 function App() {
-    return (
-        <div className="App">
-            {/* <Counter counter={0} />
-            <HideSeek title={"show/hide"} con={true}></HideSeek>
-            <IncrementDecrement counter={0} />
-             */}
-            <DataMassaging items={data} />
-        </div>
-    );
+    return <div className="App"></div>;
 }
 
 export default App;
