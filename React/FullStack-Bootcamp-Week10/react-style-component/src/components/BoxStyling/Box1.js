@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import Box2 from "./Box2";
+import "./Box.css";
 
 const Box1 = () => {
     return (
         <div
-            className="Box1"
-            style={{
-                backgroundColor: "green",
-                height: "800px",
-                width: "800px",
-                position: "relative",
-            }}
+            className="box1"
+            // style={{
+            //     backgroundColor: "green",
+            //     height: "800px",
+            //     width: "800px",
+            //     position: "relative",
+            // }}
         >
             <Box2 />
         </div>
