@@ -5,11 +5,12 @@ const src = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
 const VideoPlayerManager = () => {
     const videoRef = useRef();
 
-    const videoHandler = async (event) => {
+    const videoHandler = (event) => {
         const input = event.target;
         console.dir(input);
-        await videoRef;
+        const v = videoRef;
         const videoControl = videoRef.current;
+        console.dir(v);
         console.dir(videoControl);
         if (input.id === 'pause') {
             videoControl.pause();

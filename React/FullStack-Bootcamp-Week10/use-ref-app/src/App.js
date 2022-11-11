@@ -5,8 +5,8 @@ import ImageToggleManager from './components/ImageToggle/ImageToggleManager';
 function App() {
     return (
         <div className='App'>
-            {/* <VideoPlayerManager /> */}
-            <ImageToggleManager />
+            <VideoPlayerManager />
+            {/* <ImageToggleManager /> */}
         </div>
     );
 }
