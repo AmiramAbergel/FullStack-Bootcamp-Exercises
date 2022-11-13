@@ -1,25 +1,25 @@
 import './App.css';
-import RandChuckNorris from './components/RandChuckNorris/RandChuckNorris';
+import CategoriesList from './components/RandChuckNorris/CategoriesList';
 import React, { useState } from 'react';
 
 function App() {
-    const [joke, setJoke] = useState(null);
+    const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const fetchJokeHandler = async () => {
+    const fetchCategoriesHandler = async () => {
         setIsLoading(true);
         setError(null);
         try {
             const response = await fetch(
-                `https://api.chucknorris.io/jokes/random`
+                `https://api.chucknorris.io/jokes/categories`
             );
             if (!response.ok) {
                 throw new Error('Error');
             }
             const data = await response.json();
-
-            setJoke(data);
+            console.log(data);
+            setCategories(data);
         } catch (error) {
             setError(error.message);
         }
@@ -27,10 +27,10 @@ function App() {
         setIsLoading(false);
     };
 
-    let content = <p>Found no joke</p>;
+    let content = <p>Found no Categories</p>;
 
-    if (joke) {
-        content = <RandChuckNorris joke={joke.value} />;
+    if (categories.length > 0) {
+        content = <CategoriesList categories={categories}></CategoriesList>;
     }
 
     if (error) {
@@ -42,7 +42,9 @@ function App() {
     return (
         <div className='App'>
             <section>
-                <button onClick={fetchJokeHandler}>Fetch Joke</button>
+                <button onClick={fetchCategoriesHandler}>
+                    Fetch Categories
+                </button>
             </section>
             <section>{content}</section>
         </div>
