@@ -16,11 +16,11 @@ function App() {
 
     return (
         <div className='App'>
-            <FavoriteColor />
+            {/* <FavoriteColor /> */}
             {/* <BoxAnimation /> */}
             {/* <ChangingBox /> */}
             {/* {spinner} */}
-            {/* <Focus /> */}
+            <Focus />
         </div>
     );
 }
