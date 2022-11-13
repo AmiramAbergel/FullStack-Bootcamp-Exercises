@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Focus = (props) => {
-    return;
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
+    return (
+        <div>
+            <form>
+                <input
+                    ref={inputRef}
+                    type='text'
+                    placeholder='This has focus'
+                />
+            </form>
+        </div>
+    );
 };
 
 export default Focus;
