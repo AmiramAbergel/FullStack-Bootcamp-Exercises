@@ -12,7 +12,11 @@ const AvatarMap = (props) => {
     return (
         <UL>
             {props.avatars.map((avatar) => (
-                <Avatar name={avatar.name} img={avatar.img} />
+                <Avatar
+                    name={avatar.name}
+                    img={avatar.img}
+                    key={Math.random().toString()}
+                />
             ))}
         </UL>
     );

@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const AvatarSearch = () => {
-    return;
-};
+const AvatarSearch = (props) => {};
 
 export default AvatarSearch;
