@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Container = styled.header`
@@ -23,27 +23,46 @@ const Container = styled.header`
         margin: 0 1rem;
         width: 5rem;
     }
-    a {
-        color: white;
-        text-decoration: none;
-        &:hover,
-        :active {
-            color: #95bcf0;
-            padding-bottom: 0.25rem;
-            border-bottom: 4px solid #95bcf0;
-        }
+`;
+const StyledActiveLink = styled(NavLink)`
+    color: white;
+    text-decoration: none;
+
+    &:hover,
+    &.active {
+        padding-bottom: 0.25rem;
+        border-bottom: 4px solid #95bcf0;
+    }
+
+    &.active {
+        color: #95bcf0;
     }
 `;
+
 const Header = () => {
     return (
         <Container>
             <nav>
                 <ul>
                     <li>
-                        <Link to='/'>HomePage</Link>
+                        <StyledActiveLink
+                            className={(navData) =>
+                                navData.isActive ? 'active' : ''
+                            }
+                            to='/'
+                        >
+                            HomePage
+                        </StyledActiveLink>
                     </li>
                     <li>
-                        <Link to='/products'>Products</Link>
+                        <StyledActiveLink
+                            className={(navData) =>
+                                navData.isActive ? 'active' : ''
+                            }
+                            to='/products'
+                        >
+                            Products
+                        </StyledActiveLink>
                     </li>
                 </ul>
             </nav>
