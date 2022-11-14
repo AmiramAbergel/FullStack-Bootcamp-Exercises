@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import AvatarMap from './components/AvatarMap';
 import avatarFilter from './utils/avatarFilter';
 
@@ -23,7 +23,6 @@ function App() {
                     throw new Error('Error');
                 }
                 const data = await response.json();
-                console.log(data);
                 const transformedAvatars = data.results.map((avatarData) => {
                     return {
                         name: `${avatarData.name.first} ${avatarData.name.last}`,
@@ -31,7 +30,6 @@ function App() {
                     };
                 });
                 setAvatars(transformedAvatars);
-                console.log(transformedAvatars);
             } catch (error) {
                 setError(error.message);
             }
@@ -71,13 +69,14 @@ function App() {
             clearTimeout(debounce);
         };
     }, [searchInput, avatars]);
+
+    const inputHandler = (event) => {
+        setSearchInput(event.target.value);
+    };
+
     return (
         <>
-            <input
-                onChange={(e) => {
-                    setSearchInput(e.target.value);
-                }}
-            />
+            <input value={searchInput} onChange={inputHandler} />
             <section>{avatar.length > 0 ? filteredContent : content}</section>
         </>
     );

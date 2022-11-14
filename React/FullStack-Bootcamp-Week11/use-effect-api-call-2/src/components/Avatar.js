@@ -9,7 +9,7 @@ const Avatar = (props) => {
     return (
         <Li>
             <h2>{props.name}</h2>
-            <img src={props.img} alt='' />
+            <img src={props.img} alt={props.name} />
         </Li>
     );
 };
