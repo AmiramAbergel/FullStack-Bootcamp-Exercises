@@ -14,15 +14,39 @@ class SimpleTodo extends React.Component {
         };
     }
 
+    clickHandler = (event) => {
+        console.log(event.target.checked);
+        this.setState((prev) => {
+            return (prev.data.find(
+                (item) => item.name === event.target.id
+            ).completed = !event.target.checked);
+        });
+    };
+
     mapData() {
         const arr = this.state.data;
-        return arr.map((item) => {
-            return <li>{item.name}</li>;
+
+        const res = arr.map((item) => {
+            return (
+                <li
+                    onClick={this.clickHandler}
+                    id={item.name}
+                    checked={item.completed}
+                    key={item.name}
+                >
+                    {item.name} - {item.completed === true ? 'v' : 'x'}
+                </li>
+            );
         });
+        return res;
     }
 
     render() {
-        return <ul style={{ listStyleType: 'none' }}>{this.mapData()}</ul>;
+        return (
+            <ul style={{ listStyleType: 'none' }}>
+                {this.mapData.bind(this)()}
+            </ul>
+        );
     }
 }
 
