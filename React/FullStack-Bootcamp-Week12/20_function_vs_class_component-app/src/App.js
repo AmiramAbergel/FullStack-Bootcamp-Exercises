@@ -1,10 +1,11 @@
 import './App.css';
 import IncrementDecrement from './components/IncrementDecrement';
-
+import SimpleTodo from './components/SimpleTodo';
 function App() {
     return (
         <div className='App'>
-            <IncrementDecrement />
+            {/* <IncrementDecrement /> */}
+            <SimpleTodo />
         </div>
     );
 }
