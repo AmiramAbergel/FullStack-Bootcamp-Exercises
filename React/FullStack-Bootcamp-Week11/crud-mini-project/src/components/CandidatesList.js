@@ -26,12 +26,12 @@ const CandidatesList = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            //  await here
+            //  await here !!!!!!!!!Spinner!!!
+            setIsLoading(true);
             const [data, error, isLoading] = await getData();
-
+            setIsLoading(false);
             setCandidates(data);
             setError(error);
-            setIsLoading(isLoading);
         }
         fetchData();
     }, []);
@@ -39,7 +39,7 @@ const CandidatesList = (props) => {
     const onRead = () => {
         const res = candidates.map((candidate) => {
             return (
-                <div key={candidate.id}>
+                <div key={candidate.id} id={candidate.id}>
                     <h3>
                         {candidate.first} {candidate.last}
                     </h3>
