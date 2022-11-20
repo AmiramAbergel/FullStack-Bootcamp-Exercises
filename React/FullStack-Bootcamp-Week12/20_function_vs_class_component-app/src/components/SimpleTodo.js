@@ -13,6 +13,17 @@ class SimpleTodo extends React.Component {
             ],
         };
     }
+
+    mapData() {
+        const arr = this.state.data;
+        return arr.map((item) => {
+            return <li>{item.name}</li>;
+        });
+    }
+
+    render() {
+        return <ul style={{ listStyleType: 'none' }}>{this.mapData()}</ul>;
+    }
 }
 
 export default SimpleTodo;
