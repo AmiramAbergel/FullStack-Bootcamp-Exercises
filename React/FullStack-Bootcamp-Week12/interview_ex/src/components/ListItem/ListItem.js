@@ -1,6 +1,7 @@
-import useState from 'react';
+import { useState } from 'react';
 
 export default function ListItem({ itemData }) {
-  const [item, setItem] = useState(itemData);
-  return <div>{item}</div>;
+    const [item, setItem] = useState(itemData);
+    console.log(item);
+    return <div>{item}</div>;
 }
