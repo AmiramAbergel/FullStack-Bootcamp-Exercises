@@ -1,0 +1,12 @@
+{
+    "name": "import_export",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "import_export.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}
