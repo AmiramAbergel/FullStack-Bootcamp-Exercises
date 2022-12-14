@@ -3,7 +3,7 @@ import { Product } from '../models/productModel.js';
 export const addNewProduct = async (req, res) => {
     try {
         const newProductData = req.body;
-        const newProduct = await Product.create(req.body);
+        const newProduct = await Product.create(newProductData);
         console.log(newProduct);
         res.status(201).json({
             status: 'success',
@@ -90,6 +90,35 @@ export const getProductRange = async (req, res) => {
         } else {
             err;
         }
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};
+
+export const updateActiveDiscount = async (req, res) => {
+    const pID = req.params.id;
+    console.log(req.body);
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+            pID,
+            {
+                $set: req.body,
+            },
+            {
+                new: true,
+                runValidators: true,
+                context: 'query',
+            }
+        );
+        res.status(200).json({
+            status: 'success',
+            data: {
+                updatedProduct,
+            },
+        });
     } catch (err) {
         res.status(404).json({
             status: 'fail',

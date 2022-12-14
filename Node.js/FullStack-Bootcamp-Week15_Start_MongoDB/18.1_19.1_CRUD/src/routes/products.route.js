@@ -5,6 +5,7 @@ import {
     getProduct,
     getProductActive,
     getProductRange,
+    updateActiveDiscount,
 } from '../controllers/ProductController.js';
 
 export const productsRouter = Router();
@@ -13,7 +14,11 @@ productsRouter.route(`/`).get(getAllProducts).post(addNewProduct); //get all pro
 productsRouter.route(`/range`).get(getProductRange);
 productsRouter.route(`/active`).get(getProductActive);
 
-productsRouter.route(`/:id`).get(getProduct).patch().delete(); // read specific product | update product | delete product
+productsRouter
+    .route(`/:id`)
+    .get(getProduct)
+    .patch(updateActiveDiscount)
+    .delete(); // read specific product | update product | delete product
 
 // productsRouter.route(`/credit/:id`).patch();
 // productsRouter.route(`/cash/:id`).patch();
