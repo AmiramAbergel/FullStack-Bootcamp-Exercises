@@ -126,3 +126,35 @@ export const updateActiveDiscount = async (req, res) => {
         });
     }
 };
+
+export const deleteByID = async (req, res) => {
+    const pID = req.params.id;
+    console.log(req.body);
+    try {
+        await Product.findByIdAndRemove(pID);
+        res.status(200).json({
+            status: 'success',
+            message: '1 product deleted!',
+        });
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};
+
+export const deleteAllProducts = async (req, res) => {
+    try {
+        await Product.deleteMany({});
+        res.status(200).json({
+            status: 'success',
+            message: 'All Deleted!',
+        });
+    } catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err,
+        });
+    }
+};
